@@ -1,0 +1,19 @@
+<script>
+  const emailsString =
+    `
+    asd@adasd.com,asd@adasd.com,asd@adasd.com,asd@adasd.com,asd@adasd.com,
+    asd@adasd.com,asd@adasd.com,
+    asdam@amdwq.asdoc,aasd.asd@asd,
+  `
+
+  const validateEmail = email => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(email)
+  }
+
+  const emails = emailsString
+    .split(',')
+    .filter(it => it.includes('@') && validateEmail(it))
+  
+  console.log(emails.map(it => `${it}`).toString())
+</script>
